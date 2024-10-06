@@ -1,0 +1,40 @@
+name: Build
+
+# Trigger the workflow on push or pull request to the specified branches
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+# Define the jobs that will run
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    # Steps to execute the workflow
+    steps:
+      # Checkout the code from the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Set up Node.js environment
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18' # Specify the Node.js version you want to use
+          cache: 'pnpm'
+
+      # Install pnpm globally
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      # Install project dependencies using pnpm
+      - name: Install dependencies
+        run: pnpm install
+
+      # Run the build command
+      - name: Build the project
+        run: pnpm build
