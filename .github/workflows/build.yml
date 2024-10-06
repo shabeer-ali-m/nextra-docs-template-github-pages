@@ -9,6 +9,12 @@ on:
     branches:
       - main
 
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 # Define the jobs that will run
 jobs:
   build:
@@ -43,4 +49,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: out-folder
-          path: out
+          path: ./
