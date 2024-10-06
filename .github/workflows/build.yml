@@ -48,7 +48,6 @@ jobs:
       - name: Upload "out" folder
         uses: actions/upload-artifact@v3
         with:
-          name: ./
           path: ./
           
  # Deployment job
