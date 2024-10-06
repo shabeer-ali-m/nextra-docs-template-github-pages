@@ -37,3 +37,10 @@ jobs:
       # Run the build command
       - name: Build the project
         run: pnpm build
+
+      # Upload the "out" folder as an artifact to use in the deploy job
+      - name: Upload "out" folder
+        uses: actions/upload-artifact@v3
+        with:
+          name: out-folder
+          path: out
