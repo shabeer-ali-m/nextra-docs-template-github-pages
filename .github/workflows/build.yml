@@ -25,7 +25,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18' # Specify the Node.js version you want to use
-          cache: 'pnpm'
 
       # Install pnpm globally
       - name: Install pnpm
