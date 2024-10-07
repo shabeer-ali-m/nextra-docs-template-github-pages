@@ -46,6 +46,7 @@ jobs:
 
       - name: Copy documentation to ./docs
         run: |
+          rm -rf docs
           mkdir -p docs
           ls -lrt
           cp -R ./out/* docs/
