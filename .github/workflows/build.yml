@@ -60,5 +60,7 @@ jobs:
           cp -R docs/* .
           git add .
           git commit -m "Update docs"
-          git push origin gp-pages
+          git push -f origin gp-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
