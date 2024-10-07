@@ -44,3 +44,18 @@ jobs:
       - name: Build the project
         run: pnpm build    
 
+      - name: Copy documentation to ./docs
+        run: |
+          cp -R out/* docs/
+
+      - name: Deploy to GitHub Pages
+        run: |
+          git config --global user.email "shabeer.ali.m@gmail.com"
+          git config --global user.name "Workflow"
+          git fetch origin
+          git checkout gh-pages
+          cp -R docs/* .
+          git add .
+          git commit -m "Update docs"
+          git push origin gh-pages
+
